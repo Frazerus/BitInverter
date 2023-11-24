@@ -40,4 +40,20 @@ public class BitInverterBaseTests
 
 
   }
+
+  [Test]
+  [TestCaseSource(nameof(cases))]
+  public void Invert_v02_No_Branch (ulong input, ulong expected)
+  {
+
+    var output = _bitInverter.Invert_v02_No_Branch(input);
+
+    Assert.That(output.ToString("b64"), Is.EqualTo(expected.ToString("b64")));
+
+
+    // 11111111 = 255 => 00000000 = 0
+    // 00001000 = 8 => 00010000 = 16
+
+
+  }
 }

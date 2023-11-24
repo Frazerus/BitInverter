@@ -15,6 +15,8 @@ namespace BitInverterBenchmarks
     [Benchmark]
     public ulong Invert() => _bitInverter.Invert(12u);
 
+    [Benchmark]
+    public ulong Invert_v02_No_Branch() => _bitInverter.Invert_v02_No_Branch(12u);
   }
 
   public class Program
