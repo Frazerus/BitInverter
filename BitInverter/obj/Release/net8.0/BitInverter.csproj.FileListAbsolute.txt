@@ -1,0 +1,11 @@
+C:\Development\BitInverter\BitInverter\bin\Release\net8.0\BitInverter.deps.json
+C:\Development\BitInverter\BitInverter\bin\Release\net8.0\BitInverter.dll
+C:\Development\BitInverter\BitInverter\bin\Release\net8.0\BitInverter.pdb
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.AssemblyInfoInputs.cache
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.AssemblyInfo.cs
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.csproj.CoreCompileInputs.cache
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.dll
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\refint\BitInverter.dll
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\BitInverter.pdb
+C:\Development\BitInverter\BitInverter\obj\Release\net8.0\ref\BitInverter.dll

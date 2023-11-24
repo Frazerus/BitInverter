@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitInverter", "BitInverter\BitInverter.csproj", "{7EC53D88-F3B9-4032-86DD-22FFB5C46786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitInverterTests", "BitInverterTests\BitInverterTests.csproj", "{1CE8B700-8C00-4D73-A33A-37BEFB65E44B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitInverterBenchmarks", "BitInverterBenchmarks\BitInverterBenchmarks.csproj", "{3C3BBCA8-C539-44B0-B882-E476861B9383}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EC53D88-F3B9-4032-86DD-22FFB5C46786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC53D88-F3B9-4032-86DD-22FFB5C46786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC53D88-F3B9-4032-86DD-22FFB5C46786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC53D88-F3B9-4032-86DD-22FFB5C46786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE8B700-8C00-4D73-A33A-37BEFB65E44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE8B700-8C00-4D73-A33A-37BEFB65E44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE8B700-8C00-4D73-A33A-37BEFB65E44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE8B700-8C00-4D73-A33A-37BEFB65E44B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C3BBCA8-C539-44B0-B882-E476861B9383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3BBCA8-C539-44B0-B882-E476861B9383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3BBCA8-C539-44B0-B882-E476861B9383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3BBCA8-C539-44B0-B882-E476861B9383}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
