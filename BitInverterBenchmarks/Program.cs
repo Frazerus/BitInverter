@@ -1,4 +1,5 @@
-﻿using BenchmarkDotNet.Attributes;
+﻿using System.Security.Cryptography;
+using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Diagnosers;
 using BenchmarkDotNet.Running;
 using BitInverter;
@@ -11,12 +12,14 @@ namespace BitInverterBenchmarks
   {
     private BitInverterBase _bitInverter = new BitInverterBase();
 
+    private ulong _value = ((ulong)RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue) << 32)
+                           + (ulong)RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue); 
 
     [Benchmark]
-    public ulong Invert() => _bitInverter.Invert(12u);
+    public ulong Invert() => _bitInverter.Invert(_value);
 
     [Benchmark]
-    public ulong Invert_v02_No_Branch() => _bitInverter.Invert_v02_No_Branch(12u);
+    public ulong Invert_v02_No_Branch() => _bitInverter.Invert_v02_No_Branch(_value);
   }
 
   public class Program
