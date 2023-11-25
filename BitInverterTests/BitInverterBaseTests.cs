@@ -56,4 +56,13 @@ public class BitInverterBaseTests
 
 
   }
+
+  [Test]
+  [TestCaseSource(nameof(cases))]
+  public void Invert_v03_Log2 (ulong input, ulong expected)
+  {
+    var output = _bitInverter.Invert_v03_Log2(input);
+
+    Assert.That(output.ToString("b64"), Is.EqualTo(expected.ToString("b64")));
+  }
 }
