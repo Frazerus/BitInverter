@@ -29,4 +29,26 @@ public class BitInverterBase
 
     return output;
   }
+
+  [MethodImpl(MethodImplOptions.NoInlining)]
+  public ulong Invert_v02_No_Branch (ulong input)
+  {
+    ulong output = 0;
+    ulong remainingBits = input;
+    for (int i = 0; i < 64; i++)
+    {
+      var currentBit = remainingBits & 0x1;
+      remainingBits = remainingBits >> 1;
+
+      var tempOutput = output << 1;
+      output = tempOutput | currentBit;
+    }
+
+    //1: 1011 & 0001 -> currentBit = 0001, o = 0000 | 0001
+    //2: 0101 & 0001 -> currentBit = 0001, o = 0010 | 0001
+    //2: 0010 & 0001 -> currentBit = 0000, o = 0110 | 0000
+    //2: 0001 & 0001 -> currentBit = 0001, o = 1100 | 0001
+
+    return output;
+  }
 }
