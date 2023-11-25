@@ -68,6 +68,15 @@ public class BitInverterBaseTests
 
   [Test]
   [TestCaseSource(nameof(cases))]
+  public void Invert_v03a_Log2_XOR (ulong input, ulong expected)
+  {
+    var output = _bitInverter.Invert_v03a_Log2_XOR(input);
+
+    Assert.That(output.ToString("b64"), Is.EqualTo(expected.ToString("b64")));
+  }
+
+  [Test]
+  [TestCaseSource(nameof(cases))]
   public void Invert_v04_Log2_ReverseEndianness (ulong input, ulong expected)
   {
     var output = _bitInverter.Invert_v04_Log2_ReverseEndianness(input);
