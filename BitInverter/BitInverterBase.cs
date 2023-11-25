@@ -147,6 +147,44 @@ public class BitInverterBase
 
 
   [MethodImpl(MethodImplOptions.NoInlining)]
+  public ulong Invert_v03b_Log2_Compact (ulong input)
+  {
+    // NOTE: keeping the OR operations separate from the SHIFT results in fewer statements and thus better performance.
+    // NOTE: the present form results in the same ASM code as the non-compact form. 
+
+    ulong left;
+    ulong right;
+    ulong result = input;
+
+    left = (result  & 0x_AA_AA_AA_AA_AA_AA_AA_AA) >> 1;
+    right = (result & 0x_55_55_55_55_55_55_55_55) << 1;
+    result = left | right;
+
+    left = (result  & 0x_CC_CC_CC_CC_CC_CC_CC_CC) >> 2;
+    right = (result & 0x_33_33_33_33_33_33_33_33) << 2;
+    result = left | right;
+
+    left = (result  & 0x_F0_F0_F0_F0_F0_F0_F0_F0) >> 4;
+    right = (result & 0x_0F_0F_0F_0F_0F_0F_0F_0F) << 4;
+    result = left | right;
+
+    left = (result  & 0x_FF_00_FF_00_FF_00_FF_00) >> 8;
+    right = (result & 0x_00_FF_00_FF_00_FF_00_FF) << 8;
+    result = left | right;
+
+    left = (result  & 0x_FF_FF_00_00_FF_FF_00_00) >> 16;
+    right = (result & 0x_00_00_FF_FF_00_00_FF_FF) << 16;
+    result = left | right;
+
+    left = result >> 32;
+    right = result << 32;
+    result = left | right;
+
+    return result;
+  }
+
+
+  [MethodImpl(MethodImplOptions.NoInlining)]
   public ulong Invert_v04_Log2_ReverseEndianness (ulong input)
   {
     ulong left;

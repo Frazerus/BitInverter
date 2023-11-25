@@ -28,6 +28,9 @@ namespace BitInverterBenchmarks
     public ulong Invert_v03a_Log2_XOR () => _bitInverter.Invert_v03a_Log2_XOR(_value);
 
     [Benchmark]
+    public ulong Invert_v03b_Log2_Compact () => _bitInverter.Invert_v03b_Log2_Compact(_value);
+
+    [Benchmark]
     public ulong Invert_v04_Log2_ReverseEndianness () => _bitInverter.Invert_v04_Log2_ReverseEndianness(_value);
   }
 
