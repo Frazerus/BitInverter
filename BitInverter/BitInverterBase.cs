@@ -9,6 +9,7 @@ namespace BitInverter;
 public class BitInverterBase
 {
   private static readonly Vector64<byte> byteShuffler = Vector64.Create((byte)7, 6, 5, 4, 3, 2, 1, 0);
+  private static readonly Vector128<byte> s_shuffledIndices = Vector128.Create(0x00_01_02_03_04_05_06_07).AsByte();
 
   [MethodImpl(MethodImplOptions.NoInlining)]
   public ulong Invert (ulong input)
@@ -246,6 +247,38 @@ public class BitInverterBase
     var byteVector = Vector128.Create(result).AsByte();
 
     var vectorOutput = Vector128.Shuffle(byteVector, Vector128.Create(0x00_01_02_03_04_05_06_07).AsByte());
+
+    return vectorOutput.AsUInt64()[0];
+  }
+
+  [MethodImpl(MethodImplOptions.NoInlining)]
+  public ulong Invert_v05a_Log2_SimdShuffleWithCachedIndices (ulong input)
+  {
+    ulong left;
+    ulong right;
+    ulong result = input;
+
+    left = result  & 0x_AA_AA_AA_AA_AA_AA_AA_AA; // AA = 10101010
+    right = result & 0x_55_55_55_55_55_55_55_55; // 55 = 01010101
+    left = left >> 1;
+    right = right << 1;
+    result = left ^ right;
+
+    left = result  & 0x_CC_CC_CC_CC_CC_CC_CC_CC; // CC = 11001100
+    right = result & 0x_33_33_33_33_33_33_33_33; // 33 = 00110011
+    left = left >> 2;
+    right = right << 2;
+    result = left ^ right;
+
+    left = result  & 0x_F0_F0_F0_F0_F0_F0_F0_F0; // F0 = 11110000
+    right = result & 0x_0F_0F_0F_0F_0F_0F_0F_0F; // 0F = 00001111
+    left = left >> 4;
+    right = right << 4;
+    result = left ^ right;
+
+    var byteVector = Vector128.Create(result).AsByte();
+
+    var vectorOutput = Vector128.Shuffle(byteVector, s_shuffledIndices);
 
     return vectorOutput.AsUInt64()[0];
   }
