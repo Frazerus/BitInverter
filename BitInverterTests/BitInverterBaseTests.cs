@@ -95,6 +95,15 @@ public class BitInverterBaseTests
 
   [Test]
   [TestCaseSource(nameof(cases))]
+  public void Invert_v05a_Log2_SimdShuffleWithCachedIndices (ulong input, ulong expected)
+  {
+    var output = _bitInverter.Invert_v05a_Log2_SimdShuffleWithCachedIndices(input);
+
+    Assert.That(output.ToString("b64"), Is.EqualTo(expected.ToString("b64")));
+  }
+
+  [Test]
+  [TestCaseSource(nameof(cases))]
   public void Invert_v05 (ulong input, ulong expected)
   {
     var output = _bitInverter.Invert_v05(input);
