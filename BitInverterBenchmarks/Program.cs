@@ -15,7 +15,7 @@ namespace BitInverterBenchmarks
     private ulong _value = ((ulong)RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue) << 32)
                            + (ulong)RandomNumberGenerator.GetInt32(Int32.MinValue, Int32.MaxValue);
 
-    [Benchmark]
+   /* [Benchmark]
     public ulong Invert () => _bitInverter.Invert(_value);
 
     [Benchmark]
@@ -29,9 +29,12 @@ namespace BitInverterBenchmarks
 
     [Benchmark]
     public ulong Invert_v03b_Log2_Compact () => _bitInverter.Invert_v03b_Log2_Compact(_value);
-
+*/
     [Benchmark]
     public ulong Invert_v04_Log2_ReverseEndianness () => _bitInverter.Invert_v04_Log2_ReverseEndianness(_value);
+
+    [Benchmark]
+    public ulong Invert_v05 () => _bitInverter.Invert_v05(_value);
   }
 
   public class Program
